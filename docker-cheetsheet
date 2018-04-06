@@ -1,0 +1,14 @@
+To delete all the existed containers
+  $ docker rm $(docker ps -a -q -f status=exited)
+ 
+Running a container in deteched mode
+  $ docker run -d -P --name static-site prakhar1989/static-site 
+-d will detach our terminal,
+-P will publish all exposed ports to random ports and 
+--name corresponds to a name we want to give
+
+See the ports
+  $ docker port static-site
+  
+Custom port forwarding
+  $ docker run -p 8888:80 prakhar1989/static-site
